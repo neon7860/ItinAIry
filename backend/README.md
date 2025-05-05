@@ -1,0 +1,1 @@
+# ItinAIry \n_AI‑powered city companion—build log_ \n\n**Current status:** sprint S0 (repo bootstrap)
