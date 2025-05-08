@@ -1,15 +1,14 @@
 import React from "react";
 import { useState } from "react";
 
+const todaysDate = (): string => new Date().toISOString().slice(0, 10);
+
 export default function TripForm() {
-  const todaysDate = (): string => {
-    return new Date().toISOString().slice(0, 10);
-  };
 
   const [tripName, setTripName] = useState<string>("");
   const [startDate, setStartDate] = useState<string>(todaysDate());
 
-  const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeText = (e: React.ChangeEvent<HTMLFormElement>) => {
     setTripName(e.target.value);
     console.log("Trip name: ", tripName);
   };
@@ -19,7 +18,7 @@ export default function TripForm() {
     console.log("Start date: ", startDate);
   };
 
-  const submitDetails = (e: React.FormEvent<HTMLInputElement>) => {
+  const submitDetails = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Trip name: ", tripName);
     console.log("Start date: ", startDate);
@@ -29,9 +28,9 @@ export default function TripForm() {
     <div>
       <form
         onSubmit={(e) => submitDetails(e)}
-        className="max-w-md mx-auto mt-24 p-6 bg-white rounded-xl shadow flex flex-col gap-4 shadow-xl/30"
+        className="max-w-md mx-auto mt-24 p-6 bg-white rounded-xl flex flex-col gap-4 shadow-xl/30"
       >
-        <label htmlFor="tripName" className="text-1xl font-bold text-left">
+        <label htmlFor="tripName" className="font-bold text-left">
           Trip Name
         </label>
         <input
@@ -43,7 +42,7 @@ export default function TripForm() {
           value={tripName}
           required
         />
-        <label htmlFor="startDate" className="text-1xl font-bold text-left">
+        <label htmlFor="startDate" className="font-bold text-left">
           Start Date
         </label>
         <input
