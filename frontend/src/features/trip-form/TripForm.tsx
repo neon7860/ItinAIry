@@ -8,7 +8,7 @@ export default function TripForm() {
   const [tripName, setTripName] = useState<string>("");
   const [startDate, setStartDate] = useState<string>(todaysDate());
 
-  const onChangeText = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTripName(e.target.value);
     console.log("Trip name: ", tripName);
   };
