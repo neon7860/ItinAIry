@@ -16,7 +16,13 @@ def ping():
     return {"ok": True}
 
 @app.get("/weather")
-def get_weather():
+async def get_weather():
+    base_url = https://api.openweathermap.org/data/3.0/onecall
+    parameters = {
+        "lat": 51.5074,  # Latitude for London
+        "lon": -0.1278,  # Longitude for London
+        "appid": 
+    }
 
 
 # 1 . What we’re doing
