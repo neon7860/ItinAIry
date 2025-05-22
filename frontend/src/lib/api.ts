@@ -4,3 +4,8 @@ export async function getPing(){
     const response = await fetch(`${API_URL}/ping`)
     return response.json()
 }
+
+export async function getWeather(){
+    const response = await fetch(`${API_URL}/weather`)
+    return response.json()
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getPing } from "../../lib/api";
+import { getPing, getWeather } from "../../lib/api";
 
 const todaysDate = (): string => new Date().toISOString().slice(0, 10);
 
@@ -38,6 +38,19 @@ export default function TripForm() {
     fetchPing();
   }
 , []);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const data = await getWeather();
+        console.log("Weather response: ", data);
+        return data;
+      } catch(err){
+        console.error("Error fetching weather: ", err);
+      }
+    }
+    fetchWeather();
+  }, [tripName]); 
 
   return (
     <div>
